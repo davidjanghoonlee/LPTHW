@@ -3,42 +3,55 @@
 
 # The addition
 def add (x,y):
- return x + y
+    return x+y
 
 # The subtraction
 def subtract (x,y):
- return x - y
+    return x-y
+
 # The multiplication
 def multiply (x,y):
- return x * y
+    return x*y
+
 # The division
 def divide (x,y):
-
-    return x / y
+    return x/y
 
 # I am going to receive inputs from users
 
-print ("Select operation.")
-print ("1.Add")
-print ("2.Subtract")
-print ("3.Multiply")
-print ("4.Divide")
 
-choice = input("Enter choice(1/2/3/4):")
+x = int(input("NUMBER INPUT 1: "))
+y = int(input("NUMBER INPUT 2: "))
 
-num1 = int(input("Enter first number: "))
-num2 = int(input("Enter second number: "))
+
+print "What do you want to do with the numberts? : "
+
+print "1.ADD"
+print "2.SUBTRACT"
+print "3.MULTIPLY"
+print "4.DIVIDE"
+
+
+
+# Behavior based on the user's choice
+
+choice = input(":")
 
 if choice == '1':
-    print (num1,"+",num2,"=", add(num1,num2))
+    print x,"+",y,"=", add(x,y)
 
 elif choice == '2':
-    print (num1,"-",num2,"=", subtract(num1,num2))
+    print x,"-",y,"=", subtract(x,y)
 
 elif choice == '3':
-    print (num1,"*",num2,"=", multiply(num1,num2))
+    print x,"*",y,"=", multiply(x,y)
 
 elif choice == '4':
-    print (num1,"/",num2,"=", divide(num1,num2))
+    print x,"/",y,"=", divide(x,y)
+
 else:
     print ("Invalid input")
+
+#Why isn't this working?
+# Mr.Olinda Please Help Me
+# It seems like the functions are defined
