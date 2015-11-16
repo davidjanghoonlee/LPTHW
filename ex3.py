@@ -1,57 +1,23 @@
-# I am going to make a calculator
-# These are the function protocols
+print "I will now count my chickens:"
 
-# The addition
-def add (x,y):
-    return x+y
+print "Hens", 25 + 30 /6
+print "Roosters" , 100 -25 * 3 % 4
 
-# The subtraction
-def subtract (x,y):
-    return x-y
+print "Now I will count the eggs:"
 
-# The multiplication
-def multiply (x,y):
-    return x*y
+print 3 + 2 + 1 - 5 + 4 % 2 -1 / 4 + 6
 
-# The division
-def divide (x,y):
-    return x/y
+print "Is it true that 3 + 2 < 5 -7"
 
-# I am going to receive inputs from users
+print 3 +2 < 5 - 7
 
+print "What is 3 +2 ?", 3 + 2
+print "What is 5 -7?" , 5 -7
 
-x = int(input("NUMBER INPUT 1: "))
-y = int(input("NUMBER INPUT 2: "))
+print "Oh, that's why it's False."
 
+print "How about some more."
 
-print "What do you want to do with the numberts? : "
-
-print "1.ADD"
-print "2.SUBTRACT"
-print "3.MULTIPLY"
-print "4.DIVIDE"
-
-
-
-# Behavior based on the user's choice
-
-choice = input(":")
-
-if choice == '1':
-    print x,"+",y,"=", add(x,y)
-
-elif choice == '2':
-    print x,"-",y,"=", subtract(x,y)
-
-elif choice == '3':
-    print x,"*",y,"=", multiply(x,y)
-
-elif choice == '4':
-    print x,"/",y,"=", divide(x,y)
-
-else:
-    print ("Invalid input")
-
-#Why isn't this working?
-# Mr.Olinda Please Help Me
-# It seems like the functions are defined
+print "Is it greater?", 5 > -2
+print "Is it greater or equal?" , 5 >= -2
+print "Is it less or equal?" , 5 <= -2
