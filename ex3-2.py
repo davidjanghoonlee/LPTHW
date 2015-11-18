@@ -37,16 +37,16 @@ print "4.DIVIDE"
 
 choice = input(":")
 
-if choice == '1':
+if choice == 1:
     print x,"+",y,"=", add(x,y)
 
-elif choice == '2':
+elif choice == 2:
     print x,"-",y,"=", subtract(x,y)
 
-elif choice == '3':
+elif choice == 3:
     print x,"*",y,"=", multiply(x,y)
 
-elif choice == '4':
+elif choice == 4:
     print x,"/",y,"=", divide(x,y)
 
 else:
