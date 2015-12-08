@@ -19,5 +19,3 @@ Alright, so you said %r about liking me.
 You live in %r. Not sure where that is.
 And you have a %r computer. Nice.
 """ % (likes, lives, computer)
-
-#
