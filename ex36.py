@@ -7,9 +7,10 @@ from sys import exit
 def startGame():
     print "Welcome to the Maze of Sphinx.\n"
     print "You are locked in a Maze."
-    print "The only way escape this maze is to answer Sphinx's riddles correctly.\n"
+    print "To Escape: answer Sphinx's riddles correctly.\n"
     print "Here comes the first riddle...\n"
     riddleOne()
+
 
 def riddleOne():
     print "\t Riddle # 1\n"
@@ -24,6 +25,7 @@ def riddleOne():
         print "The answer is Mary!"
         dead()
 
+
 def riddleTwo():
     print "\t Riddle # 2\n"
 
@@ -32,9 +34,11 @@ def riddleTwo():
     if "no" or "No" in noStair:
         print "Correct....Moving on to riddle three...\n"
         riddleThree()
+
     else:
         print "There are no stairs! It is a one-story house!"
         dead()
+
 
 def riddleThree():
     print "\t Riddle # 3\n"
@@ -44,9 +48,11 @@ def riddleThree():
     if "man" or "Man" or "men" or "Men" in man:
         print "Correct....\nYou are out of this maze...!"
         gateOne()
+
     else:
         print "It is 'Man...'"
         dead()
+
 
 def dead():
     print "You didn't answer the riddle correctly..."
@@ -54,6 +60,7 @@ def dead():
     print "You starved to death in the maze..."
     time.sleep(0.2)
     tryAgain()
+
 
 def tryAgain():
     choice = raw_input("Do you want to try again?\n[no]\n[yes]\n:")
