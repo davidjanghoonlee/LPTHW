@@ -19,29 +19,29 @@ class Engine(object):
     
     # has-a function "play" that takes self as a parameter
     def play(self):
-        curretns_scene = self.scene_map.opening_scene()
+        current_scene = self.scene_map.opening_scene()
         last_scene = self.scene_map.next_scene('finished')
-        
-        while curretns_scene != last_scene:
+
+        while current_scene != last_scene:
             next_scene_name = current_scene.enter()
             current_scene = self.scene_map.next_scene(next_scene_name)
-            
-        # print this out the last scene
+
+        # be sure to print out the last scene
         current_scene.enter()
 
 
 # make a class "Death" that is-a "Scene" which has function "enter" with self parameter
 class Death(Scene):
-    
+
     quips = [
-        "You died. You kinda suck at this.",
-        "Your mom would be proud...if she were smarter.",
-        "Such a luser.",
-        "I have a small puppy that's better at this."
+        "You died.  You kinda suck at this.",
+         "Your mom would be proud...if she were smarter.",
+         "Such a luser.",
+         "I have a small puppy that's better at this."
     ]
 
     def enter(self):
-        print Death.quips[randint(0, len(self.quips)-1]
+        print Death.quips[randint(0, len(self.quips)-1)]
         exit(1)
 
 # make a class "CentralCorridor" that is-a "Scene" that has a function "enter"
@@ -206,18 +206,28 @@ class Finished(Scene):
 # make a class "Map" that has-a:
 class Map(object):
 
+    # attribute
+    scenes = {
+        'central_corridor': CentralCorridor(),
+        'laser_weapon_armory': LaserWeaponArmory(),
+        'the_bridge': TheBridge(),
+        'escape_pod': EscapePod(),
+        'death': Death(),
+        'finished': Finished(),
+    }
+
     # _init_ with self and start_scene parameters
-    #def __init__(self, start_scene):
-        #self.start_scene = start_scene
+    def __init__(self, start_scene):
+        self.start_scene = start_scene
 
     # function "next_scene" that takes self and scene_name parameters
-    #def next_scene(self, scene_name):
-        #val = Map.scenes.get(scene_name)
-        #return val
+    def next_scene(self, scene_name):
+        val = Map.scenes.get(scene_name)
+        return val
         
     # function "opening_scene" with self
-    #def opening_scene(self):
-        #return self.next_scene(self.start_scene)
+    def opening_scene(self):
+        return self.next_scene(self.start_scene)
 
 
 # set "a_map" to an instance of class "Map" with central_corridor parameter 
