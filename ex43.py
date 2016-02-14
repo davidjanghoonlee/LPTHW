@@ -216,6 +216,17 @@ class EscapePod(Scene):
             print "Plus, you died."
             return 'death'
 
+# make a class "running" that is-a "Scene"
+class Running(Scene):
+
+    def enter(self):
+        print "You are being chased!"
+        print "You are running!"
+        print "Running" * (randint(1,9))
+        print "But eventually you were caught."
+        print "You died"
+        return 'death'
+        
 # make a class "Finished" that is-a "Scene"
 class Finished(Scene):
 
@@ -236,6 +247,7 @@ class Map(object):
         'escape_pod': EscapePod(),
         'death': Death(),
         'finished': Finished(),
+        'running': Running()
     }
 
     # _init_ with self and start_scene parameters
