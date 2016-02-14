@@ -6,7 +6,7 @@ from random import randint
 class Scene(object):
 
     def enter(self):
-        print "This scene is not yet configured. Subclass it and implement enter()."
+        print "Unconfigured scene. Subclass it and implement enter()."
         exit(1)
 
 
@@ -34,10 +34,12 @@ class Engine(object):
 class Death(Scene):
 
     quips = [
-        "You died.  You kinda suck at this.",
-         "Your mom would be proud...if she were smarter.",
-         "Such a luser.",
-         "I have a small puppy that's better at this."
+        "The scythe of death has reached you. Adios...",
+         "Do better next time!",
+         "You can do better than that! Come on!",
+         "Our highly esteemed hero...Please try again and save the world!",
+         "The icy cold clammy hand from underground dragged you to death...Bye...",
+         "Hades has invited to his kingdom where no one can escape back out again"
     ]
 
     def enter(self):
@@ -58,6 +60,7 @@ class CentralCorridor(Scene):
         print "a Gothon jumps out, red scaly skin, dark grimy teeth, and evil clown costume"
         print "flowing around his hate filled body.  He's blocking the door to the"
         print "Armory and about to pull a weapon to blast you."
+        print "Will you [shoot!] or [dodge!] or [tell a joke] ?"
 
         action = raw_input("> ")
 
@@ -199,7 +202,7 @@ class EscapePod(Scene):
 class Finished(Scene):
 
     def enter(self):
-        print "You won! Good job."
+        print "Victory is yours!"
         return 'finished'
 
 
