@@ -7,7 +7,7 @@ class Scene(object):
 
     def enter(self):
         print "Unconfigured scene. Subclass it and implement enter()."
-        exit(1)
+        exit(2)
 
 
 # class with:
@@ -15,13 +15,17 @@ class Engine(object):
     
     # has-a _init_ that takes self and scene_map parameters;
     def __init__(self, scene_map):
+        # from any implemented class (self) get scene_map attribute and set it to scene_map
         self.scene_map = scene_map
     
     # has-a function "play" that takes self as a parameter
     def play(self):
+        # set current_scene from self  
         current_scene = self.scene_map.opening_scene()
+        # last scene is the implemented function scene_map's next scene that has an attribute 'finished'
         last_scene = self.scene_map.next_scene('finished')
         
+        # while current scene is not the last scene, the next scene gets name after the current scene 
         while current_scene != last_scene:
             next_scene_name = current_scene.enter()
             current_scene = self.scene_map.next_scene(next_scene_name)
@@ -33,7 +37,7 @@ class Engine(object):
 # make a class "Death" that is-a "Scene" which has function "enter" with self parameter
 class Death(Scene):
 
-    quips = [
+    cases = [
         "The scythe of death has reached you. Adios...",
          "Do better next time!",
          "You can do better than that! Come on!",
@@ -44,8 +48,8 @@ class Death(Scene):
     ]
 
     def enter(self):
-        print Death.quips[randint(0, len(self.quips)-1)]
-        exit(1)
+        print Death.cases[randint(0, len(self.cases)-1)]
+        exit(2)
 
 # make a class "CentralCorridor" that is-a "Scene" that has a function "enter"
 class CentralCorridor(Scene):
@@ -149,7 +153,7 @@ class TheBridge(Scene):
 
         action = raw_input("> ")
 
-        if "Titans" in action or "titans" in action:
+        if "Titan" in action or "titan" in action:
             print "With your Pikachu Lightning Bolt, you strike the Titans!\n"
             print "'Pikachu, bolt attack!' roared Hercules.\n"
             print "The Titans fell down. They died because of electric shock"
@@ -239,7 +243,7 @@ class Finished(Scene):
 # make a class "Map" that has-a:
 class Map(object):
 
-    # attribute
+    # attribute lowercased with underscores
     scenes = {
         'central_corridor': CentralCorridor(),
         'laser_weapon_armory': LaserWeaponArmory(),
@@ -250,14 +254,14 @@ class Map(object):
         'running': Running()
     }
 
-    # _init_ with self and start_scene parameters
+    # __init__ with self and start_scene parameters
     def __init__(self, start_scene):
         self.start_scene = start_scene
 
     # function "next_scene" that takes self and scene_name parameters
     def next_scene(self, scene_name):
-        val = Map.scenes.get(scene_name)
-        return val
+        ret = Map.scenes.get(scene_name)
+        return ret
         
     # function "opening_scene" with self
     def opening_scene(self):
