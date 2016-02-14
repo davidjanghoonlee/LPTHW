@@ -39,7 +39,8 @@ class Death(Scene):
          "You can do better than that! Come on!",
          "Our highly esteemed hero...Please try again and save the world!",
          "The icy cold clammy hand from underground dragged you to death...Bye...",
-         "Hades has invited to his kingdom where no one can escape back out again"
+         "Hades has invited you to his kingdom where no one can escape back out again",
+         "Welcome to eternal Tartarus...."
     ]
 
     def enter(self):
@@ -50,49 +51,51 @@ class Death(Scene):
 class CentralCorridor(Scene):
 
     def enter(self):
-        print "The Gothons of Planet Percal #25 have invaded your ship and destroyed"
-        print "your entire crew.  You are the last surviving member and your last"
-        print "mission is to get the neutron destruct bomb from the Weapons Armory,"
-        print "put it in the bridge, and blow the ship up after getting into an "
-        print "escape pod."
+        print "Hey Hercules!"
+        print "The Titans of the Tartarus have invaded the Olympus!"
+        print "Other gods have been killed or escaped. Even taken captive!" 
+        print "You are the chosen one to save the Olympus and your"
+        print "mission is to get the 'Lightning Bolt' from Zeus's room,"
+        print "strike the Titans with it, and rescue the helpless gods and goddesses to the "
+        print "top of the Olympus."
         print "\n"
-        print "You're running down the central corridor to the Weapons Armory when"
-        print "a Gothon jumps out, red scaly skin, dark grimy teeth, and evil clown costume"
-        print "flowing around his hate filled body.  He's blocking the door to the"
-        print "Armory and about to pull a weapon to blast you."
-        print "Will you [shoot!] or [dodge!] or [tell a joke] ?"
+        print "You are running down the streets of Oedipus to head toward Mount Olympus."
+        print "On the way to Olympus, you meet a one-eyed Cyclops."
+        print "He approached you with green slimy skin, grinding his teeth, drooling, and one eye."
+        print "He's blocking the way to the Olympus. What would you do?"
+        print "You have a sword and a shield that Athena gave you as gifts."
+        print "Will you [fight him] or [run away] or [tell a joke] ?"
 
         action = raw_input("> ")
 
-        if action == "shoot!":
-            print "Quick on the draw you yank out your blaster and fire it at the Gothon."
-            print "His clown costume is flowing and moving around his body, which throws"
-            print "off your aim.  Your laser hits his costume but misses him entirely.  This"
-            print "completely ruins his brand new costume his mother bought him, which"
-            print "makes him fly into an insane rage and blast you repeatedly in the face until"
-            print "you are dead.  Then he eats you."
+        if "run" in action:
+            print "With your fastest run, you tried to escape! You ran as hard as you can!"
+            print "The hungry Cyclops's not gonna miss you cuz he's huuuuunnnnggggggrrryyy."
+            print "While you ran a yard he ran a mile. Within a single blink of your eyes"
+            print "he's in front of you.\n"
+            print "'Hey, boy,' said he.\n"
+            print "'Wut, wut is it!? What do you want from me!?,' said Hercules.\n"
+            print "'I'm going to eat you like a piece of cake. Yum,' replied the Cyclops.\n"
+            print "Without letting you reply, he eats you. You are dead.  "
             return 'death'
-
-        elif action == "dodge!":
-            print "Like a world class boxer you dodge, weave, slip and slide right"
-            print "as the Gothon's blaster cranks a laser past your head."
-            print "In the middle of your artful dodge your foot slips and you"
-            print "bang your head on the metal wall and pass out."
+        elif "fight" in action:
+            print "Like the world's strongest demi-god, you fight. You draw your sword and dash toward him,"
+            print "THUMP! You got his back. You first blind him with your sword. The cool blade creates an intersection with his neck."
+            print "PSHSHSHSH."
+            print "The spring of blood soaksyou."
+            print "The big nuisance is down! You can proceed to Mount Olympus"
             print "You wake up shortly after only to die as the Gothon stomps on"
             print "your head and eats you."
-            return 'death'
-
-        elif action == "tell a joke":
-            print "Lucky for you they made you learn Gothon insults in the academy."
-            print "You tell the one Gothon joke you know:"
-            print "Lbhe zbgure vf fb sng, jura fur fvgf nebhaq gur ubhfr, fur fvgf nebhaq gur ubhfr."
-            print "The Gothon stops, tries not to laugh, then busts out laughing and can't move."
-            print "While he's laughing you run up and shoot him square in the head"
-            print "putting him down, then jump through the Weapon Armory door."
             return 'laser_weapon_armory'
-
+        elif "tell" in action:
+            print "You try to tell the Cyclops joke you know:"
+            print "\n 'Wait, what languages does he speak?...hmmm...'\n "
+            print "While you were thinking, a humongous hand reached out to you."
+            print "Grabbbb!!!!Squeeze!!!Too strong!!!!!"
+            print "You can't move. Then, he swallowed you.\nDeath."
+            return 'death'
         else:
-            print "DOES NOT COMPUTE!"
+            print "NO OTHER CHOICE. TRY AGAIN"
             return 'central_corridor'
 
 
@@ -100,69 +103,83 @@ class CentralCorridor(Scene):
 class LaserWeaponArmory(Scene):
 
     def enter(self):
-        print "You do a dive roll into the Weapon Armory, crouch and scan the room"
-        print "for more Gothons that might be hiding.  It's dead quiet, too quiet."
-        print "You stand up and run to the far side of the room and find the"
-        print "neutron bomb in its container.  There's a keypad lock on the box"
-        print "and you need the code to get the bomb out.  If you get the code"
-        print "wrong 10 times then the lock closes forever and you can't"
-        print "get the bomb.  The code is 3 digits."
-        code = "%d%d%d" % (randint(1,9), randint(1,9), randint(1,9))
-        guess = raw_input("[keypad]> ")
-        guesses = 0
-
-        while guess != code and guesses < 10:
-            print "BZZZZEDDD!"
-            guesses += 1
-            guess = raw_input("[keypad]> ")
-
-        if guess == code:
-            print "The container clicks open and the seal breaks, letting gas out."
-            print "You grab the neutron bomb and run as fast as you can to the"
-            print "bridge where you must place it in the right spot."
-            return 'the_bridge'
-        else:
-            print "The lock buzzes one last time and then you hear a sickening"
-            print "melting sound as the mechanism is fused together."
-            print "You decide to sit there, and finally the Gothons blow up the"
-            print "ship from their ship and you die."
+        print "Here you are at the Mount Olympus."
+        print "You see no one in the Counicl Square of the Olympus." 
+        print "You see no one in the room of Zeus."
+        print "However, you see a golden chest along with a golden apple of Aphrodite."
+        print "What will you do?"
+        print "Will you [strike the chest] or [open the chest] or [move on]"
+      
+        do_what = raw_input("> ")
+  
+        if "strike" in do_what:
+            print "Clang!....Nothing happened. Maybe too weak!"
+            print "You got mad and striked the chest multiple times"
+            print "Clang!"*4
+            print "You striked the chest %d times." % (randint(1, 10000))
+            print "You were too loud. The furious Titans came and dragged you to Tartarus."
             return 'death'
+        elif "open" in do_what:
+            print "All you had to do was just simply open!"
+            print "You grabbed Zeus's Lightning Bolt"
+            print "Now...."
+            print "Hercules on the RESCUE!!!!"
+            return 'the_bridge'
+        elif "move" in do_what:
+            print "When you came out, the Titans were walking by Zeus's room."
+            print "They saw you and came after you."
+            print "The cold blade of them went through your tummy."
+            print "You DIED."
+            return 'death'
+        else:
+            print "What you gonna do? Try again."
+            return 'laser_weapon_armory'
 
 
 # make a class "TheBridge" that is-a "Scene" with function "enter"
 class TheBridge(Scene):
 
     def enter(self):
-        print "You burst onto the Bridge with the netron destruct bomb"
-        print "under your arm and surprise 5 Gothons who are trying to"
-        print "take control of the ship.  Each of them has an even uglier"
-        print "clown costume than the last.  They haven't pulled their"
-        print "weapons out yet, as they see the active bomb under your"
-        print "arm and don't want to set it off."
+        print "Now with your Lightning Bolt, you came out of the room."
+        print "You see those evil Titans trying to swallow the Olympus gods."
+        print "You are so mad right now."
+        print "What action do you take now?!"
+        print "Will you [strike Lightning at the Titans] or [strike the gods] or"
+        print "[run away] ?"
 
         action = raw_input("> ")
 
-        if action == "throw the bomb":
-            print "In a panic you throw the bomb at the group of Gothons"
-            print "and make a leap for the door.  Right as you drop it a"
-            print "Gothon shoots you right in the back killing you."
-            print "As you die you see another Gothon frantically try to disarm"
-            print "the bomb. You die knowing they will probably blow up when"
-            print "it goes off."
+        if "Titans" in action or "titans" in action:
+            print "With your Pikachu Lightning Bolt, you strike the Titans!\n"
+            print "'Pikachu, bolt attack!' roared Hercules.\n"
+            print "The Titans fell down. They died because of electric shock"
+            print "The cloaks of the gods and the goddesses were made of rubber (inductor)"
+            print "so they survived from the flowing electricity.\n"
+            return 'escape_pod'      
+        
+        elif "god" in action:
+            print "The cloaks of the gods and the goddesses were made of rubber (inductor)"
+            print "so they survived from the flowing electricity.\n"
+            print "Because you were foolish to attack your allies instead of attacking the enemies,"
+            print "your enemies swallowed your allies.\n"
+            print "Now, they are coming after you"
+            print "THUMP " * 8
+            print "\nROOOOOOOOAAAAAAAAR\n"
+            print "They got you! (Smiley Face)"
             return 'death'
-
-        elif action == "slowly place the bomb":
-            print "You point your blaster at the bomb under your arm"
-            print "and the Gothons put their hands up and start to sweat."
-            print "You inch backward to the door, open it, and then carefully"
-            print "place the bomb on the floor, pointing your blaster at it."
-            print "You then jump back through the door, punch the close button"
-            print "and blast the lock so the Gothons can't get out."
-            print "Now that the bomb is placed you run to the escape pod to"
-            print "get off this tin can."
-            return 'escape_pod'
+        
+        elif "run" in action:
+            print "You abandoned the gods and the Olympus"
+            print "You such a coward."
+            print "The Titans killed every gods."
+            print "Since the ferocious Titans are ruling the world as gods,"
+            print "The earth committed suicide by destroying itself with its own"
+            print "gravitational force."
+            print "It became a blackhole, and everyone died."
+            return 'death'
+            
         else:
-            print "DOES NOT COMPUTE!"
+            print "NO OTHER CHOICE. TRY AGAIN!"
             return "the_bridge"
 
 
@@ -170,39 +187,41 @@ class TheBridge(Scene):
 class EscapePod(Scene):
 
     def enter(self):
-        print "You rush through the ship desperately trying to make it to"
-        print "the escape pod before the whole ship explodes.  It seems like"
-        print "hardly any Gothons are on the ship, so your run is clear of"
-        print "interference.  You get to the chamber with the escape pods, and"
-        print "now need to pick one to take.  Some of them could be damaged"
-        print "but you don't have time to look.  There's 5 pods, which one"
-        print "do you take?"
+        print "Now that all gods are saved, you have go to the gate of Tartarus and close it again."
+        print "You rush down the mountain desperately trying to make it to"
+        print "the gate of Tartarus before the Titans regenerate and reappear on Olympus. You reach down to"
+        print "the gate of Tartarus. When you were about to shut the gate, you saw your mom in Tartarus."
+        print "\nYou can hardly believe that she's in there, and you start to weep."
+        print "What would you do?"
+        print "Would you [shut the gate] for the world's sake? or"
+        print "Would you [go in to meet your mom] for your sake?"
 
-        good_pod = randint(1,5)
-        guess = raw_input("[pod #]> ")
+        hesitate = raw_input("> ")
 
 
-        if int(guess) != good_pod:
-            print "You jump into pod %s and hit the eject button." % guess
-            print "The pod escapes out into the void of space, then"
-            print "implodes as the hull ruptures, crushing your body"
-            print "into jam jelly."
-            return 'death'
-        else:
-            print "You jump into pod %s and hit the eject button." % guess
-            print "The pod easily slides out into space heading to"
-            print "the planet below.  As it flies to the planet, you look"
-            print "back and see your ship implode then explode like a"
-            print "bright star, taking out the Gothon ship at the same"
-            print "time.  You won!"
-
+        if "shut" in hesitate:
+            print "You ignored your mom and shut the gate"
+            print "You hear her cry, but that's okay because you are such a nice son."
+            print "GOOD JOB shutting your own mom off for the world's sake."
+            print "Wheeeee~~~~You saved the world!"
             return 'finished'
+        else:
+            print "You jump into pod and met your mom."
+            print "You approached her to hug her...."
+            print "......"
+            print "BUT THEN!!"
+            print "She suddenly disappeared!"
+            print "Oh man! It was a hallucination!"
+            print "Since you failed to shut the gate, the Titans conquered the world."
+            print "Plus, you died."
+            return 'death'
 
 # make a class "Finished" that is-a "Scene"
 class Finished(Scene):
 
     def enter(self):
-        print "Victory is yours!"
+        print "You saved the world!"
+        print "Hurray! Victory is yours!"
         return 'finished'
 
 
